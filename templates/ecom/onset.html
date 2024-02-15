@@ -1,0 +1,260 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Aikikai Rabat</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'assets/img/favicon.ico' %}" rel="icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'assets/lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'assets/css/style.min.css' %}" rel="stylesheet">
+    
+</head>
+
+<body  style="background-color: #111!important;">
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="{% url 'ecom:index' %}" class="navbar-brand">
+                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Aikikai</h1>
+            </a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4 bg-secondary">
+                    <a href="{% url 'ecom:index' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'ecom:index' %}#about" class="nav-item nav-link">About Us</a>
+                    <a href="{% url 'ecom:index' %}#class" class="nav-item nav-link">Classes</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'userauths:logout' %}" class="nav-item nav-link">Logout</a>
+                    {% else %}
+                    <a href="{% url 'userauths:login' %}" class="nav-item nav-link">Login</a>
+                    <a href="{% url 'userauths:register' %}" class="nav-item nav-link">Sign-Up</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Team Start -->
+    <div class="container pt-5 team">
+        <div class="d-flex flex-column text-center mb-5">
+            <h4 class="text-primary font-weight-bold">Choose your sport</h4>
+            <h4 class="display-4 font-weight-bold"></h4>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    <img class="card-img-top" src="{% static 'assets/img/team-1.png' %}" alt="" style="width: 255px; height: 280.5px;">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <a class="btn btn-outline-light text-center mr-2 px-0" id="aikido-tab" style="width: 100px; height: 40px;" data-toggle="pill" href="#aikido">Aikido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    <img class="card-img-top" src="{% static 'assets/img/team-2.jpg' %}" alt="" style="height: 280.5px;">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <a class="btn btn-outline-light text-center mr-2 px-0" id="bjj-tab" style="width: 100px; height: 40px;" data-toggle="pill" href="#bjj">BJJ</a>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    <img class="card-img-top" src="{% static 'assets/img/team-3.jpg' %}" alt="" style="height: 280.5px;">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <a class="btn btn-outline-light text-center mr-2 px-0" id="boxing-tab" style="width: 100px; height: 40px;" data-toggle="pill" href="#boxing">Boxing</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <div class="card border-0 bg-secondary text-center text-white">
+                    <img class="card-img-top" src="{% static 'assets/img/team-4.jpg' %}" alt="" style="height: 280.5px;">
+                    <div class="card-social d-flex align-items-center justify-content-center">
+                    </div>
+                    <div class="card-body bg-secondary">
+                        <a class="btn btn-outline-light text-center mr-2 px-0" id="muay-thai-tab" style="width: 100px; height: 40px;" data-toggle="pill" href="#muay-thai">Muay Thai</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    <!-- Class Timetable Start -->
+            <div class="tab-content">
+                <div id="boxing" class="container tab-pane">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 pb-5">
+                                <!-- Your other content goes here -->
+                                <h4 class="text-primary mb-4">Requirement</h4>
+                                <li class="list-unstyled" style="color: white;">
+                                    <ul>Your device should be connected to the internet</ul>
+                                    <ul>Make sure your device is connected to the same network as the gym</ul>
+                                </li>
+                            </div>
+                            <div class="col-md-6 pb-5">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.986654108651!2d-6.838515725004704!3d34.01855351950969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76c788074f7cd%3A0x3a6b3ca695eae0e2!2sClub%20AIKIKAI%20RABAT!5e0!3m2!1sen!2sma!4v1705238099565!5m2!1sen!2sma" width="100%" height="350" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="muay-thai" class="container tab-pane fade">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 pb-5">
+                                <!-- Your other content goes here -->
+                                <h4 class="text-primary mb-4">Requirement</h4>
+                                <li class="list-unstyled" style="color: white;">
+                                    <ul>Your device should be connected to the internet</ul>
+                                    <ul>Make sure your device is connected to the same network as the gym</ul>
+                                </li>
+                            </div>
+                            <div class="col-md-6 pb-5">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.986654108651!2d-6.838515725004704!3d34.01855351950969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76c788074f7cd%3A0x3a6b3ca695eae0e2!2sClub%20AIKIKAI%20RABAT!5e0!3m2!1sen!2sma!4v1705238099565!5m2!1sen!2sma" width="100%" height="350" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="bjj" class="container tab-pane fade">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 pb-5">
+                                <!-- Your other content goes here -->
+                                <h4 class="text-primary mb-4">Requirement</h4>
+                                <li class="list-unstyled" style="color: white;">
+                                    <ul>Your device should be connected to the internet</ul>
+                                    <ul>Make sure your device is connected to the same network as the gym</ul>
+                                </li>
+                            </div>
+                            <div class="col-md-6 pb-5">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.986654108651!2d-6.838515725004704!3d34.01855351950969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76c788074f7cd%3A0x3a6b3ca695eae0e2!2sClub%20AIKIKAI%20RABAT!5e0!3m2!1sen!2sma!4v1705238099565!5m2!1sen!2sma" width="100%" height="350" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="aikido" class="container tab-pane fade">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 pb-5">
+                                <!-- Your other content goes here -->
+                                <h4 class="text-primary mb-4">Requirement</h4>
+                                <li class="list-unstyled" style="color: white;">
+                                    <ul>Your device should be connected to the internet</ul>
+                                    <ul>Make sure your device is connected to the same network as the gym</ul>
+                                </li>
+                            </div>
+                            <div class="col-md-6 pb-5">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.986654108651!2d-6.838515725004704!3d34.01855351950969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76c788074f7cd%3A0x3a6b3ca695eae0e2!2sClub%20AIKIKAI%20RABAT!5e0!3m2!1sen!2sma!4v1705238099565!5m2!1sen!2sma" width="100%" height="350" style="border: 1px solid white;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Class Timetable End -->
+    
+    
+    
+
+    <!-- Footer Start -->
+    <div class="footer container-fluid mt-5 py-5 px-sm-3 px-md-5 text-white">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Opening Hours</h4>
+                <h5 class="text-white">Monday - Friday</h5>
+                <p>8.00 AM - 11:00 PM</p>
+                <h5 class="text-white">Saturday - Sunday</h5>
+                <p>2.00 PM - 11:00 PM</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="{% url 'ecom:index'}"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                    <a class="text-white mb-2" href="{% url 'ecom:index' %}#about"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                    <a class="text-white mb-2" href="{% url 'ecom:index' %}#class"><i class="fa fa-angle-right mr-2"></i>Classes</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-primary mb-4">Get In Touch</h4>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 40px; height: 40px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container border-top border-dark pt-5">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-white font-weight-bold" href="{% url 'ecom:index' %}">Aikikai</a>. All Rights Reserved. Designed by
+                <a class="text-white font-weight-bold" href="https://github.com/Hajjiserialkiller">Ahmed Hajji</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'assets/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'assets/lib/waypoints/waypoints.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('a[data-toggle="pill"]').on('click', function (e) {
+                // Prevent the default behavior of the anchor tag
+                e.preventDefault();
+    
+                // Get the target tab ID from the href attribute
+                var targetTabId = $(this).attr('href');
+    
+                // Deactivate all tabs
+                $('.tab-pane').removeClass('active');
+    
+                // Activate the target tab
+                $(targetTabId).addClass('active');
+            });
+        });
+    </script>
+    <script>
+        function scrollToSection(sectionId) {
+            var targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+
+
+</html>
